@@ -7,11 +7,13 @@ public class PlayerController : MonoBehaviour
     private bool _dead;
     private Animator _animator;
     private Rigidbody2D _rigidBody;
+    public int Speed=1;
 
     // Use this for initialization
     void Start()
     {
         _animator = GetComponent<Animator>();
+        _rigidBody = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
@@ -45,14 +47,14 @@ public class PlayerController : MonoBehaviour
         //If we're moving left or right, play the run animation
         if (horizontal != 0)
         {
-            _animator.SetBool("Run", true);
+           // _animator.SetBool("Run", true);
         }
         else
         {
-            _animator.SetBool("Run", false);
+          //  _animator.SetBool("Run", false);
         }
 
         //Move the actual object by setting its velocity
-        _rigidBody.velocity = new Vector2(horizontal * 20, vertical * 20);
+        _rigidBody.velocity = new Vector2(horizontal * Speed, vertical * Speed);
     }
 }
