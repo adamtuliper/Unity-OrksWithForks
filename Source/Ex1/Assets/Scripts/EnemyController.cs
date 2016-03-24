@@ -3,17 +3,22 @@ using System.Collections;
 
 public class EnemyController : MonoBehaviour
 {
-
+    public float Speed = 1f;
     private Rigidbody2D _rigidBody;
     private Vector2 _destination;
     private Vector2 _direction;
     private Animator _animator;
+    private Coroutine _navigate;
+    private Coroutine _attack;
+    private SpriteRenderer _spriteRenderer;
+
     // Use this for initialization
     void Start()
     {
         _rigidBody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        StartCoroutine(CoMoveToNextPosition());
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _navigate = StartCoroutine(CoMoveToNextPosition());
     }
 
     void SetNewDestination()
@@ -25,15 +30,56 @@ public class EnemyController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        //lets move in the opposite direction of the collision
-        //        collision.transform
+        //Collision happened, time to find a new path.
         SetNewDestination();
     }
 
     void OnCollisionStay2D(Collision2D collision)
     {
+        //If we're stuck in a collision let's try something new
         SetNewDestination();
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        //start attacking (determine if attack is right/left or top/bottom)
+        if (collision.gameObject.tag == "Player")
+        {
+
+            StopCoroutine(_navigate);
+            //flip right or left. We naturally look to the left, so if plauer
+            _spriteRenderer.flipX = collision.transform.position.x > transform.position.x;
+            _attack = StartCoroutine(CoAttack());
+        }
+    }
+
+    private IEnumerator CoAttack()
+    {
+        //Wait for a few seconds before attacking
+        _animator.SetBool("Walk", false);
+        _animator.SetTrigger("Attack");
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(1, 4));
+            _animator.SetTrigger("Attack");
+            //Deal damage
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Ork Exit trigger");
+            //Go back to navigating since we're no longer attacking.
+            StopCoroutine(_attack);
+            _navigate = StartCoroutine(CoMoveToNextPosition());
+
+            //TODO: follow player. Once player is further than 1 m, stop following
+        }
+    }
+
 
     IEnumerator CoMoveToNextPosition()
     {
@@ -46,19 +92,13 @@ public class EnemyController : MonoBehaviour
                 Debug.Log("Normalized:" + _direction);
             }
 
-            //var x = Random.Range(-1f, 1f);
-            //var y = Random.Range(-1f, 1f);
-            //var direction = new Vector2(x, y);
-            ////if you need the vector to have a specific length:
-            //direction = direction.normalized * 2;
-
-            //_rigidBody.velocity = _direction;
             _animator.SetBool("Walk", true);
-            _rigidBody.MovePosition((Vector2)transform.position + _direction * Time.deltaTime);
-            //Are we there yet or did we hit something?
+            //blindly move until we hit something or get triggered
 
-            //Choose a random direction
-            //Physics2D.Raycast(transform.position, Vector2.right
+            _rigidBody.MovePosition((Vector2)transform.position + _direction * Time.deltaTime * Speed);
+
+            //As a general rule,physics should really be done every FixedUpdate() not Update
+            //FixedUpdate() is timed to the physics engine calcuations
             yield return new WaitForFixedUpdate();
         }
     }
