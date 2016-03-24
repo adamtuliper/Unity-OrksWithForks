@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyController : MonoBehaviour
 {
     public float Speed = 1f;
+    public int AttackStrength = 10;
     private Rigidbody2D _rigidBody;
     private Vector2 _destination;
     private Vector2 _direction;
@@ -11,6 +12,7 @@ public class EnemyController : MonoBehaviour
     private Coroutine _navigate;
     private Coroutine _attack;
     private SpriteRenderer _spriteRenderer;
+    private PlayerController _player;
 
     // Use this for initialization
     void Start()
@@ -19,13 +21,20 @@ public class EnemyController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _navigate = StartCoroutine(CoMoveToNextPosition());
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     void SetNewDestination()
     {
         _destination = Random.insideUnitCircle;
-        //normalize to be 1 based so we can multiply by speed if we'd like
+        
+        //Get the two positions (ours and destination) in x,y space and 
+        //normalize it - make it one based, so its a max of (1,1) which makes it easy to use for calcs later.
+        //Granted - it is already one based because Random.insideUnitCircle gives us a position with a max
+        //of one unit away, but as a best practice in case we choose locations further away in the future,
+        //lets normalize it.
         _direction = ((Vector2)(transform.position) - ((Vector2)transform.position + _destination)).normalized;
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -63,7 +72,10 @@ public class EnemyController : MonoBehaviour
         {
             yield return new WaitForSeconds(Random.Range(1, 4));
             _animator.SetTrigger("Attack");
-            //Deal damage
+
+            //TODO: Deal damage (we'll be in range, if not this coroutine would have been shut down)
+            _player.GotHit(AttackStrength);
+            
         }
     }
 

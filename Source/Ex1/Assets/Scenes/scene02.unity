@@ -4144,7 +4144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthBar: {fileID: 381161252}
-  CoinText: {fileID: 0}
 --- !u!1001 &645492483
 Prefab:
   m_ObjectHideFlags: 0
@@ -7283,10 +7282,6 @@ Prefab:
     - target: {fileID: 407088, guid: 041e3f315268a454fa318b239d091d03, type: 2}
       propertyPath: m_RootOrder
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11440114, guid: 041e3f315268a454fa318b239d091d03, type: 2}
-      propertyPath: AttackStrength
-      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 041e3f315268a454fa318b239d091d03, type: 2}

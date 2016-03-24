@@ -1,15 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public Image HealthBar;
+    public Text CoinText;
+
+
+    public void UpdatePlayerHealth(int health)
+    {
+        HealthBar.fillAmount = health / 10f;
+        if (health < 50)
+        {
+            HealthBar.color = Color.red;
+        }
+    }
+
+    public void UpdatePlayerCoin(int coinScore)
+    {
+        CoinText.text = coinScore.ToString();
+    }
 }
