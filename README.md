@@ -86,11 +86,11 @@ When you click play, you'll go into Play Mode. This is a temporary testing mode 
 Everything in your game is visible because of a camera. There are two camera types in Unity - Orthographic and Perspective. These are simply options on a camera component. Perspective cameras see the world as we do, Orthographic cameras have no scaling with distance, which is good for 2D games. Also Orthographic camera size keeps a fixed height no matter the screen we are running the game on. The only thing that varies is how much width is visible.
 
 ![Wide View with Orthographic Camera](/Images/OrthoWide.PNG "Wide View with Orthographic Camera")
-_Orthographic Camera, Note the height
+_Orthographic Camera, note the height_
 
 ![Thin View with Orthographic Camera](/Images/OrthoThin.PNG "Thin View with Orthographic Camera")
 
-_Orthographic Camera, Note the height is still the same with a thinner screen_
+_Orthographic Camera, after changing screen width the height is still the same_
 
 
 1. Click play on the toolbar and run the game.
@@ -110,17 +110,18 @@ _Orthographic Camera, Note the height is still the same with a thinner screen_
 
 1. ** Verify you are not in play mode ** Press Control-S to save your scene. If you are in play mode you'll get an error.
 
-1. In the hierarchy window, select the Camera game object.
+1. In the hierarchy window, select the Main Camera game object. This acts as our eyes and ears. These are just components on this game object, an Audio Listener Component and a Camera Component.
 ![Camera Game Object](/Images/CameraSelected.PNG "Camera Game Object")
 
 1. In the Inspector window, change the size on the orthographic camera component to customize how much vertical height the user will see no matter the device they run it on.
-
 ![Orthographic Height](/Images/CameraSize.PNG "Orthographic Height")
 
 <a name="Ex1Task3"></a>
 #### Task 3 - Organize the Hierarchy Window ####
 
-The hierarchy window is a bit messy. It lists all of the game objects in the current scene. A game object is a container for other objects and also components which bring your game objects to life. Every item in the hierarchy is a game object, which may or may not have any visible properties. Let's organize this window a bit more. 
+The hierarchy window lists all of the game objects in the current scene. This window has been cleaned up quite a bit already but is still a bit messy. Some of the game objects should be organized better.
+
+A game object can be a zombie, but it can also just be container for other objects. Every item in the hierarchy is a game object, which may or may not have any visible properties (like an invisibe spawn point). Let's organize this window a bit more by moving the enemies and some walls around.
 
 1. Select the menu GameObject / Create Empty
 
@@ -129,14 +130,15 @@ The hierarchy window is a bit messy. It lists all of the game objects in the cur
     ![Renaming Enemies](/Images/InspectorEnemies.PNG "Renaming Enemies")
     
 1. In the Hierarchy window only, drag and drop the Orks and Goblin onto this new game object.
-    ![Collapse Game Objects](/Images/CollapseGameObjects.PNG "Collapse Game Objects")
-    
-1. In the hierarchy window, locate the Environment game object. There's already a bunch of objects underneath it.
+![Drag Enemies](/Images/DragOrks.PNG "Drag Enemies")
 
-1. In the Hierarchy window only, drag and drop all the 'walls' onto the "Environment" game object to clean up the view
-    You can control-click or click one and shift click another item, just as you would in Windows Explorer to select files. 
-1. Collapse the Environment and Enemies game objects to clean up the hierarchy view 
-   ![Drag Onto Environment](/Images/DragToEnvironment.PNG "Drag Onto Environment")
+    _Drag enemies onto the Enemies Game Object_
+1. In the Hierarchy window, locate the Environment game object. There's already a bunch of objects underneath it.
+
+1. Next (still in the Hierarchy window), drag and drop all the 'walls' onto the "Environment" game object to clean up the view. You can control-click or click one and shift click another item, just as you would in Windows Explorer to select files. 
+![Game Objects that could be organized](/Images/EditorWallCleanup.PNG "Game objects that could be organized")
+1. Collapse the Environment and Enemies game objects to clean up the Hierarchy window. 
+    ![Collapse Game Objects](/Images/CollapseGameObjects.PNG "Collapse Game Objects")
 
 <a name="Ex1Task4"></a>
 #### Task 4 - Add Level Pieces  ####
