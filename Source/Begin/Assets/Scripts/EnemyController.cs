@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private PlayerController _player;
 
+
     // Use this for initialization
     void Start()
     {
@@ -49,22 +50,47 @@ public class EnemyController : MonoBehaviour
         SetNewDestination();
     }
 
+    /// <summary>
+    /// When the larger circle around our enemy is entered, this will be called
+    /// </summary>
+    /// <param name="collision"></param>
     public void OnTriggerEnter2D(Collider2D collision)
     {
 
-        //start attacking (determine if attack is right/left or top/bottom)
+        //If the player entered our space start attacking 
         if (collision.gameObject.tag == "Player")
         {
 
             StopCoroutine(_navigate);
-            //flip right or left. We naturally look to the left, so if plauer
+            //flip right or left. We naturally look to the left
+            //If player is to our right, flip to right.
             _spriteRenderer.flipX = collision.transform.position.x > transform.position.x;
+
+            //Start the attack
             _attack = StartCoroutine(CoAttack());
         }
     }
 
+    public void Died()
+    {
+        StopAllCoroutines();
+        //Disable colliders & Disable physics so players can walk over us
+        _rigidBody.isKinematic = true;
+        var components = GetComponents<Collider2D>();
+        for (int i = 0; i <= components.GetUpperBound(0); i++)
+        {
+            components[i].enabled = false;
+        }
+    }
+    /// <summary>
+    /// Our attack routine. Attack until we're told not to.
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator CoAttack()
     {
+        //Prevent us from being pushed while attacking.
+        _rigidBody.isKinematic = true;
+
         //Wait for a few seconds before attacking
         _animator.SetBool("Walk", false);
         _animator.SetTrigger("Attack");
@@ -75,24 +101,33 @@ public class EnemyController : MonoBehaviour
 
             //TODO: Deal damage (we'll be in range, if not this coroutine would have been shut down)
             _player.GotHit(AttackStrength);
-            
         }
     }
 
+    /// <summary>
+    /// Called when someone leaves our outer circle area.
+    /// </summary>
+    /// <param name="collision"></param>
     public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Ork Exit trigger");
             //Go back to navigating since we're no longer attacking.
+            //Our orks are dumb.
             StopCoroutine(_attack);
-            _navigate = StartCoroutine(CoMoveToNextPosition());
 
-            //TODO: follow player. Once player is further than 1 m, stop following
+            //Ok, we need to understand collision again.
+            //Reenable the rigidbody. (We disabled it so the player couldn't push us around)
+            _rigidBody.isKinematic = false;
+
+            _navigate = StartCoroutine(CoMoveToNextPosition());
         }
     }
 
-
+    /// <summary>
+    /// Each physics frame move towards our target position.
+    /// </summary>
+    /// <returns></returns>
     IEnumerator CoMoveToNextPosition()
     {
 

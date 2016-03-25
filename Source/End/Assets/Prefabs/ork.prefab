@@ -14,9 +14,10 @@ GameObject:
   - 58: {fileID: 5894350}
   - 95: {fileID: 9540222}
   - 58: {fileID: 5897138}
-  m_Layer: 0
+  - 114: {fileID: 11463048}
+  m_Layer: 8
   m_Name: ork
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +29,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.9, y: -14.52, z: 0}
+  m_LocalPosition: {x: 36.098587, y: -3.762391, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -95,6 +96,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11463048
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e06961ecb06d047825d59abe90ac1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialHealth: 30
 --- !u!114 &11463100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,6 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0c2ac7e41ccb69468c5d1fd4760c010, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 1
+  AttackStrength: 10
 --- !u!212 &21267218
 SpriteRenderer:
   m_ObjectHideFlags: 1

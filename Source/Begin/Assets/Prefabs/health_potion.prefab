@@ -10,9 +10,10 @@ GameObject:
   - 4: {fileID: 440026}
   - 212: {fileID: 21271536}
   - 58: {fileID: 5857572}
+  - 114: {fileID: 11446638}
   m_Layer: 0
   m_Name: health_potion
-  m_TagString: Untagged
+  m_TagString: Health
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 103696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.734207, y: 26.325193, z: 0}
+  m_LocalPosition: {x: 11.568586, y: -15.64239, z: 0}
   m_LocalScale: {x: 1.3365685, y: 1.3365686, z: 1.3365686}
   m_Children:
   - {fileID: 435646}
@@ -103,6 +104,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.8683535
+--- !u!114 &11446638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a6c4fa990dd28b47931cd1c584cca6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HealthAmount: 10
+  CoinAmount: 0
 --- !u!198 &19821646
 ParticleSystem:
   m_ObjectHideFlags: 1

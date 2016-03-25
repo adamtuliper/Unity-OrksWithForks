@@ -14,9 +14,10 @@ GameObject:
   - 50: {fileID: 5042492}
   - 58: {fileID: 5861872}
   - 58: {fileID: 5889952}
+  - 114: {fileID: 11467058}
   m_Layer: 0
   m_Name: goblin
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +29,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187448}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.778324, y: 4.549884, z: 0}
+  m_LocalPosition: {x: 44.73368, y: 4.2192135, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,6 +108,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1
+  AttackStrength: 30
+--- !u!114 &11467058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e06961ecb06d047825d59abe90ac1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialHealth: 60
 --- !u!212 &21294464
 SpriteRenderer:
   m_ObjectHideFlags: 1

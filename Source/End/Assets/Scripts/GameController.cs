@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -20,5 +21,11 @@ public class GameController : MonoBehaviour {
     public void UpdatePlayerCoin(int coinScore)
     {
         CoinText.text = coinScore.ToString();
+    }
+
+    public void ReloadScene()
+    {
+        int sceneNumber = SceneManager.GetActiveScene().buildIndex;
+        GameObject.FindObjectOfType<ScreenFader>().EndScene(sceneNumber);
     }
 }
