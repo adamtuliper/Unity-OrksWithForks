@@ -3,10 +3,10 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour
 {
-    public float xMargin = 1f;		// Distance in the x axis the player can move before the camera follows.
-    public float yMargin = 1f;		// Distance in the y axis the player can move before the camera follows.
-    public float xSmooth = 8f;		// How smoothly the camera catches up with it's target movement in the x axis.
-    public float ySmooth = 8f;		// How smoothly the camera catches up with it's target movement in the y axis.
+    public float xMargin = 3f;		// Distance in the x axis the player can move before the camera follows.
+    public float yMargin = 3f;		// Distance in the y axis the player can move before the camera follows.
+    public float xSmooth = 1f;		// How smoothly the camera catches up with it's target movement in the x axis.
+    public float ySmooth = 1f;		// How smoothly the camera catches up with it's target movement in the y axis.
     public Vector2 maxXAndY = new Vector2(1000, 1000);		// The maximum x and y coordinates the camera can have.
     public Vector2 minXAndY = new Vector2(-1000, -1000);		// The minimum x and y coordinates the camera can have.
 

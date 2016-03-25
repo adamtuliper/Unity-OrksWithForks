@@ -8,7 +8,7 @@
 
 Unity is a major player in the cross platform game engine space with over 21 supported platforms, including Windows 10 , MacOS, Linux , Android and iOS. All of which can use the same code base. In this workshop you will builds Orks with Forks (and Knives) - a fun top down 2D game. Keep in mind Unity is not a 3D asset creation system, but instead a system you can arrange your assets, write code to animate, use physics, audio, and more. There are other software packages such as Autodesk Maya or Blender that can be used to 3D model, although Unity does have a built in terrain modelling system. 
 
-![alt](./Images/Orks Screenshot.png)
+![alt](/Images/Orks Screenshot.png)
 
 <a name="Objectives" />
 ### Objectives ###
@@ -56,13 +56,14 @@ Estimated time to complete this module: **60 minutes**
 
 In this exercise you will create your first Unity game. But first let's explore the Editor interface in Unity.
 The Hierarchy window (1) contains everything in your scene. A scene is essentially a level in your game. When the game loads, it will load the first scene in your build settings (control-shift-b) or if you are working in the Editor, the current scene will load when you play test your game.
-The Scene tab(2) contains your design surface for your level. Here you drag/drop objects and arrange your objects. Next is the Game window (3) where you will see your game when test playing it. After that is the Inspector window (4) that has the properties of the currently seleccted Game Object. Finally the Project window (5) is what contains all of the art, models, images, scripts, audio, and files (assets) that make up your project.
+The Scene tab(2) contains your design surface for your level. Here you drag/drop objects and arrange your objects. Next is the Game window (3) where you will see your game when test playing it. The Play bar (4) allows you to play your game right in Unity without having to build externally. It also allows you to pause and run your game one frame at a time. After that is the Inspector window (5) that has the properties of the currently seleccted Game Object. Finally the Project window (6) is what contains all of the art, models, images, scripts, audio, and files (assets) that make up your project.
 
+![The Editor](/Images/Editor.png "The Editor")
 
-..
-Screenshot of Asset Store
-..
+Unity's Asset Store allows you to buy (or get some for free) various assets related to your game. 
+AssetStore
 
+![The Asset Store](/Images/AssetStore.png "The Asset Store")
 
 <a name="Ex1Task1" />
 #### Task 1 - Open Project and Scene ####
@@ -75,7 +76,7 @@ To get started we need to open the starter Unity Project and find the scene file
 4. Unity will re-open and load the project. 
 5. When Unity opens, find the scene file /Assets/Scenes/scene01 and double click it to open it.
 
-![Open Scene 01](./Images/Scene.png)
+![Open Scene 01](/Images/Scene.png)
 
 <a name="Ex1Task2" />
 #### Task 2 - Run the game and modify camera settings ####
@@ -85,17 +86,17 @@ When you click play, you'll go into Play Mode. This is a temporary testing mode 
 
 Everything in your game is visible because of a camera. There are two camera types in Unity - Orthographic and Perspective. These are simply options on a camera component. Perspective cameras see the world as we do, Orthographic cameras have no scaling with distance, which is good for 2D games. Also Othergraphic camera size keeps a fixed height no matter the screen we are running the game on. The only thing that varies is how much width is visible.
 
-![Wide View with Orthographic Camera](./Images/OrthoWide.png "Wide View with Orthographic Camera)
+![Wide View with Orthographic Camera](/Images/OrthoWide.png "Wide View with Orthographic Camera")
 _Orthographic Camera, Note the height
 
-![Thin View with Orthographic Camera](./Images/OrthoThin.png "Thin View with Orthographic Camera")
+![Thin View with Orthographic Camera](/Images/OrthoThin.png "Thin View with Orthographic Camera")
 
 _Orthographic Camera, Note the height is still the same with a thinner screen_
 
 
 1. Click play on the toolbar and run the game.
 
-![Play Bar](./Images/PlayBar.png "Play Bar")
+![Play Bar](/Images/PlayBar.png "Play Bar")
 2. Move across the screen to the exit. Note the camera doesn't follow.
 3. When you are done make sure you click play again to get out of play mode.
 4. In the project window at the bottom, Navigate to /Scripts/
@@ -107,27 +108,33 @@ _Orthographic Camera, Note the height is still the same with a thinner screen_
 
 <img src="/Images/CameraSelected.png" alt="Camera Game Object" width="100px" />
 
-![Camera Game Object](./Images/CameraSelected.png "Camera Game Object")
+![Camera Game Object](/Images/CameraSelected.png "Camera Game Object")
 
 10. In the Inspector window, change the size on the orthographic camera component to customize how much vertical height the user will see no matter the device they run it on.
 
-![Orthographic Height](./Images/CameraSize.png "Orthographic Height")
+![Orthographic Height](/Images/CameraSize.png "Orthographic Height")
 
 <a name="Ex1Task3" />
 #### Task 3 - Organize the Hierarchy Window ####
 
-The hierarchy window is a bit messy. It lists all of the game objects in the current scene. A game object is a container for other objects and also components which bring your game objecs to life. Let's organize this window a bit more. 
+The hierarchy window is a bit messy. It lists all of the game objects in the current scene. A game object is a container for other objects and also components which bring your game objecs to life. Every item in the hierarchy is a game object, which may or may not have any visible properties. Let's organize this window a bit more. 
 
 1. Select the menu GameObject / Create Empty
 2. Rename this new game object to "Enemies"
     Ensure you press Enter when done (don't just click away)
+    
+    ![Renaming Enemies](/Images/InspectorEnemies.png "Renaming Enemies")
+    
 3. In the Hierarchy window only, drag and drop the Orks and Goblin onto this new game object.
-![Collapse Game Objects](./Images/CollapseGameObjects.png)
-4. Select the menu GameObject / Create Empty
+
+![Collapse Game Objects](/Images/CollapseGameObjects.png)
+
+4. In the hierarchy window, locate the Environment game object. There's already a bunch of objects underneath it.
 5. In the Hierarchy window only, drag and drop all the 'walls' onto the "Environment" game object to clean up the view
     You can control-click or click one and shift click another item, jsut as you would in Windows Explorer to select files. 
 6. Collapse the Environment and Enemies game objects to clean up the hierarchy view 
-   ![Drag Onto Environment](./Images/DragToEnvironment.png "Drag Onto Environment")
+
+   ![Drag Onto Environment](/Images/DragToEnvironment.png "Drag Onto Environment")
     
 
 <a name="Ex1Task4" />
@@ -135,7 +142,7 @@ The hierarchy window is a bit messy. It lists all of the game objects in the cur
 
 Prefabs are a concept in Unity of a 'prefabricated object'. These are game object settings, components like physics and scripts. Our walls need to have physics on them. 
 
-The level is incomplete. The left edge has been removed. Add some level pieces from the /Prefabs folder
+The level is incomplete. The left edge has been removed. Add some level pieces from the /Prefabs folder to build out the level a bit more.
 
 1. Use the /Sprites/Floors folder to drag/drop sprites into the Scene tab to draw out a floor plan.
     This folder is being used because we can simply run across an image. The case we need ot handle is how we stop at a wall
@@ -143,20 +150,76 @@ The level is incomplete. The left edge has been removed. Add some level pieces f
     The walls are ordered by top/bottom after each center piece. Because of the top down scaling perspective view, the walls on each side of the center pieces have bricks directed in opposite directions. Enemies will move until they hit any object with a collider on it.
 3. Now the tricky part. Vertex snapping. In order to get everything in place all night and neat we need to snap one vertex to the next closest vertex. Hold down V and mouse near the edge of a piece you want to snap to another.
 
-    ![Vertex Snap](./Images/VertexSnap.png "Vertex Snap")
+    ![Vertex Snap](/Images/VertexSnap.png "Vertex Snap")
     
 <a name="Ex1Task5" />
-#### Task 5 - Allow the player to play the attack and walk animations ####
+#### Task 5 - Read basic input and move the player ####
 
-An animation has already been setup to allow the player to attack. This needs to be triggered when you click the mouse. WE read this input setting via Unity's Input Manager. Those settings are found under the menu Edit/Project Settings/Input. This shows the input for Fire1 to be left control or the first mouse button (mouse 0 - ie left click)
+Before we look at adding code to a more complete version of the player, let's take a look at some simple mechanics to make our player move. In Unity when we want to work with any game object we typically get a reference to a component via a GetComponent<> function call.
 
-![Input Manager](./Images/InputManager.png "Input Manager")
+1. Open the scene /Scenes/SimplePlayer
+2. Locate the game object "Player" in the Hierarchy window.
+3. Look in the Inspector window at the components that bring this Game Object to life. We use various components in code to control an object
 
+Sprite Renderer - Displays a 2D image on the screen
+Animator - Controls the Sprite Renderer to play different images to animate this game object
+RigidBody 2D - Give this object mass and make it under the influence of gravity
+Circle Collider 2D - Give this object a shaoe the physics engine will use to simulate physics. The object will act like its a circle shape from a physics standpoint (collisions)
+ 
+    ![Inspector Window for the Player](/Images/InspectorSimplePlayer.png "Inspector Window for the Player")
 
-1. In the /Scripts/PlayerController.cs file, find the empty Update() method. add the following code to it. This will run every frame and check for Fire1. It will only be true once and that's during the frame that runs and finds it held down. If the button is held down, this will not repeat, although that is possibe to do with GetButton() 
+4. Click Play and notice that using the arrow keys we cannot control out player.
+5. Get out of play mode
+6. Open up /Scripts/SimplePlayer.cs and find the Start() method. Notice that here we ask Unity for this Game Object's RigidBody component by simply calling the following method. This component is how we'll eventually move our Player.
+```csharp
+         _rigidBody = GetComponent<Rigidbody2D>();
+```
+7. Back in Unity's Editor, Open Edit/Project Settings/Input.  Note the Inpput settings for Horizontal are A/D or Left/Right arrow keys.
+
+![Input Manager Horizontal](/Images/InputHorizontal.png "Input Manager Horizontal")
+
+7. Locate the Update() method back in Visual Studio. Here we will need to read  input (left/right up/down or ASDW keys). Replace the //TODO content in the Update() method so the code is complete as per below
+
+```csharp
+    void Update () {
+        _horizontal = Input.GetAxis("Horizontal");
+        _vertical = Input.GetAxis("Vertical");
+    }
+```
+8. Our input has a value of -1 to +1 for both Horizontal and Veritcal. We can use these values read in Update() (which is where keyboard input should be read) and apply those values in FixedUpdate, which is where we typically do physics operations.
+Replace the //ToDo line with the method content below. This will set the velocity in meters/second of our game object. Note that we'll max out at 1 m/s in each direction because our input only goes from -1 to +1.
+
+```csharp
+    void FixedUpdate()
+    {
+        //Move the actual object by setting its velocity
+        _rigidBody.velocity = new Vector2(_horizontal, _vertical);
+     }
+```
+9. Save your changes and go back to Unity. There will be a brief pause while Unity compiles your code automatically, no work is needed. You can view any errors in the Console window. You shouldn't have any, this is just an FYI that errors will show up here and also in Visual Studio, although performing a build in Visual Studio is _not_ necessary. Drag and Drop the SimplePlayer.cs script onto the Player game object. 
+
+  ![Console Errors](/Images/ConsoleErrors.png "Console Errors")
+
+10. Press Control-S to save your Unity scene changes and then click play to run the Unity project. Press the left/right up/down arrows or ASDW keys to move the character around.
+
+  ![Play Simple PLayer](/Images/PlaySimplePlayer.PNG "Play Simple Player")
+
+<a name="Ex1Task6" />
+#### Task 6 - Allow the player to play the attack and walk animations ####
+
+Now that we see how to apply basic movement, let's add code to allow the character to play an animation that has been setup already.
+This animation will be triggered by "Fire1", which according to the input system is the left control key or the first mouse button (mouse 0 - ie left click). When we asked for Input previously, we used GetAxis. To check for buttons we can use GetButtonDown (or GetButton, GetButtonUp)
+
+![Input Manager](/Images/InputManager.png "Input Manager")
+
+1. In the /Scripts/SimplePlayer.cs file, find the empty Update() method again and add the following code to it. This will run every frame and check for Fire1. It will only be true once and that's during the frame that runs and finds it held down. If the button is held down, this will not repeat, although that is possibe to do with GetButton() 
 ```csharp
     void Update()
     {
+    
+        //existing code here
+        
+        //Now add this code
         if (Input.GetButtonDown("Fire1"))
         {
             _animator.SetTrigger("Attack");
@@ -164,22 +227,14 @@ An animation has already been setup to allow the player to attack. This needs to
     }
 ```
 
-2. Also in the Update() function, set the boolean variable for walking under the //TODO section by adding the following code. This will tell the animation system to transition to the Walk animation.
-```csharp
-        _animator.SetBool("Walk", _horizontal != 0);
-```
+2. Save your code and go back to Unity. There will be a few second pause while your code is compiled by Unity.
+3. Click Play to test out the changes. You should now get a walking animation when you move and an attack animation when you press the left mouse button or left control key.
 
-3. Save your code and go back to Unity. There will be a few second pause while your code is _automatically_ compiled by Unity.
-4. Click Play to test out the changes. You should now get a walking animation when you move and an attack animation when you press the left mouse button or left control key.
+<a name="Ex1Task7" />
+#### Task 7 - Add a trigger to the coin to allow the play to detect it  ####
 
-<a name="Ex1Task19" />
-#### Task 19 - Enemy ####
-
-<a name="Ex1Task20" />
-#### Task 20 - Enemy Group ####
-
-<a name="Ex1Task21" />
-#### Task 21 - The Explosive Finale ####
+<a name="Ex1Task8" />
+#### Task 8 - Add the Walk animation ####
 
 <a name="Summary" />
 ## Summary ##
