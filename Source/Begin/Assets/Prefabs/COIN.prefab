@@ -8,7 +8,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 413126}
-  - 58: {fileID: 5811338}
   - 114: {fileID: 11437678}
   m_Layer: 0
   m_Name: COIN
@@ -74,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.438587, y: -9.9023905, z: 0}
+  m_LocalPosition: {x: 14.258589, y: -18.296043, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 467190}
@@ -118,20 +117,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 413126}
   m_RootOrder: 1
---- !u!58 &5811338
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 110246}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0.24, y: 0.28}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &11437678
 MonoBehaviour:
   m_ObjectHideFlags: 1

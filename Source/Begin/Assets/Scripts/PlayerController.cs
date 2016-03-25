@@ -101,8 +101,8 @@ public class PlayerController : MonoBehaviour
             //var pickupProperties = collision.gameObject.GetComponent<PickupProperties>();
             //CoinUp(pickupProperties.CoinAmount);
 
-            //TODO - get rid of the game object we just picked up
-            //Destroy(collision.gameObject);
+            //TODO - destroy game object we just picked up
+
         }
         else if (collision.gameObject.tag == "Health")
         {
