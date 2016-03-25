@@ -106,7 +106,7 @@ _Orthographic Camera, Note the height is still the same with a thinner screen_
 8. ** Verify you are not in play mode ** Press Control-S to save your scene. If you are in play mode you'll get an error.
 9. In the hierarchy window, select the Camera game object.
 
-<img src="/Images/CameraSelected.PNG" alt="Camera Game Object" width="100px" />
+<img src="/Images/CameraSelected.PNG" alt="Camera Game Object" />
 
 ![Camera Game Object](/Images/CameraSelected.PNG "Camera Game Object")
 10. In the Inspector window, change the size on the orthographic camera component to customize how much vertical height the user will see no matter the device they run it on.
@@ -124,13 +124,12 @@ The hierarchy window is a bit messy. It lists all of the game objects in the cur
     
     ![Renaming Enemies](/Images/InspectorEnemies.PNG "Renaming Enemies")
 3. In the Hierarchy window only, drag and drop the Orks and Goblin onto this new game object.
-
-![Collapse Game Objects](/Images/CollapseGameObjects.PNG)
+![Collapse Game Objects](/Images/CollapseGameObjects.PNG "Collapse Game Objects")
 4. In the hierarchy window, locate the Environment game object. There's already a bunch of objects underneath it.
 5. In the Hierarchy window only, drag and drop all the 'walls' onto the "Environment" game object to clean up the view
     You can control-click or click one and shift click another item, jsut as you would in Windows Explorer to select files. 
 6. Collapse the Environment and Enemies game objects to clean up the hierarchy view 
-
+                                    
    ![Drag Onto Environment](/Images/DragToEnvironment.PNG "Drag Onto Environment")
     
 
