@@ -261,14 +261,31 @@ In Unity, we can detect when one object has come within range of another object 
 
 1. Find the OnTriggerEnter2D method. This will get called when the player runs over any objects with a 2D trigger on it, like we created for the coin.
 
-1. Uncomment the code for the first TODO. This will increment our coin score when we run over a coin. We know we run over a coin because it has a tag. A tag is just text we can use to identity an object. You can create your own tags and then assign them in a dropdown list for an object. Here's an image showing the coin tag that is set. 
-    ![Coin Tag](/Images/CoinTag.PNG "Coin Tag")
- 
-1. Find the "TODO - destroy game object we just picked up and replace it with the code shown below. Our completed code now looks like the following. Notice how we check the tag of the object we've just intersected (triggrered) with
+1. Back in Unity's Editor, find any coin in the scene or the /Prefabs/coin they are all made from. In the Inspector note  that each coin has a PickupProperties.cs script on it that simply contains it's value in points. We can see this in the Editor. Since code is just another component on a game object, wee can ask Unity for these values.
+![Pickup Points](/Images/PickupPoints.PNG "Pickup Points")
+
+1. In Visual Studio, uncomment the code for the first **TODO**. This will increment our coin score when we run over a coin. We know we run over a coin because it has a tag. A tag is just text we can use to identity an object, (just like you can in Windows Forms and XAML). You can create your own tags easily and then assign them in a dropdown list for an object. Here's an image showing the coin tag that is set. Creating a new tag is just a matter of selecting "Add Tag"
     ````C#
     if (collision.gameObject.tag == "Coin")
     {
-        //Get its coin score
+        //Get its coin score by asking for the value of PickupProperties.CoinAmount
+        //That value is visible from the Editor, it's just a public variable in PickupProperties.
+
+        var pickupProperties = collision.gameObject.GetComponent<PickupProperties>();
+        CoinUp(pickupProperties.CoinAmount);
+
+        //TODO - destroy game object we just picked up
+    }
+    ```` 
+    ![Coin Tag](/Images/CoinTag.PNG "Coin Tag")
+ 
+1. In Visual Studio find the "TODO - destroy game object we just picked up and replace it with the code shown below. Our completed block of code now looks like the following. Notice how we check the tag of the object we've just intersected (triggrered) with. Each coin has a PickupProperties.cs script on it that 
+    ````C#
+    if (collision.gameObject.tag == "Coin")
+    {
+        //Get its coin score by asking for the value of PickupProperties.CoinAmount
+        //That value is visible from the Editor, it's just a public variable in PickupProperties.
+
         var pickupProperties = collision.gameObject.GetComponent<PickupProperties>();
         CoinUp(pickupProperties.CoinAmount);
 
@@ -277,10 +294,92 @@ In Unity, we can detect when one object has come within range of another object 
     ````
          
 1. Save your code and go back to Unity's Editor and play your game. When you run over coins now you should see them disappear and your coin score increase.
-            
+                
 <a name="Ex1Task8"></a>
 #### Task 8 - Add the Walk animation ####
+Some existing animations have already been setup for our fearless hero. Animations in Unity simply control components over time via point in time snapshots called keyframes. Animations require two things - an Animator component on the game object which in turn points to an animation controller. 
+
+The items below are
+* 1) The selected play with its Components showing in the Inspector window.
+* 2) The Animator component which points to 3
+* 3) The Animation Controller file. This contains the sequence of animations to play. Think of it as a flow chart for animations
+* 4) Each rectangle represents a different animation to play. We'll create a new one momentarily.
+* 5) The arrows are called the transsitions that move between each animation. Its the properties on these transitions that define when to play each animation.
+
+    ![Animation Overview](/Images/AnimationOverview.PNG "Animation Overview")
+
+Let's go ahead and add a Walk animation to the player.
+1. Navigate to the /Sprites/Hero/Walk folder
+1. In the folder press Control-A to select all of the images
+1. Drag and drop them onto the Player game object in the hierarchy. If prompted to create a file name it "Walk". This will be automatically created to contain the animation keyframes to cycle through each sprite
+    
+    ![Creating the Walk Animation](/Images/CreateWalkAnimation.PNG "Creating the Walk Animation")
+1. That last step creates a Walk.anim file with animation data in it. That data is visible in the Animation window (Menu item Windows/Animation) once you select the Player.
+    
+    ![Walk Animation File](/Images/WalkAnimationFile.PNG "Walk Animation File")
+     
+1. Now lets double click on the hero animation controller file. Ensure the Player is selected and double click on "Hero"
+    ![Open the Hero Animation Controller](/Images/DoubleClickToOpenHeroController.PNG "CreOpen the Hero Animation Controller")
+    
+1. Note there's now a new Walk state in our Animation Controller. Drag it next to soldier_attack
+    
+    ![Drag Walk in Place Next to Soldier_Attack](/Images/DragWallk.PNG "Drag Walk in Place Next to Soldier_Attack")
+    
+1. Next we'll configure the options to play this animation. Right click on soldier_idle and select Make Transition. This will give you an arrow to dock on Walk.
+    
+    ![Dock Transition on Walk](/Images/DockTransitionOnWalk.PNG "Dock Transition on Walk")
+    
+1. Repeat the same process from Walk to soldier_idle and between Walk and soldier_attack so we have bidirectional arrows between every state.
+    
+    ![All Transitions in Place](/Images/FinalTransitionsForWalk.PNG "All Transistions in Place")
+    
+1. Let's create a boolean variable called "Walk" the animation system will use. When it becomes true, we'll move from idle to walk. Click the parameters tab on the top left and then click the plus sign. Select Bool and name it Walk (case sensitive)
+    
+    ![Creating the Walk Bool 1](/Images/AnimationParameters1.PNG "Creating the Walk Bool 1")
+    ![Creating the Walk Bool 2](/Images/AnimationParameters2.PNG "Creating the Walk Bool 2")
+    
+1. Next we need to tell our transitions (the arrows, remember?) to use this variable to signal when to go from Idle to Walk. Click ** on the arrow line ** going ** from ** soldier_idle to walk. It will turn blue.
+
+1. On the right hand side of the screen under Conditions click the plus sign to Add, and change it to Walk / True. We uncheck "Has Exit Time" because this animation can be interrupted at any time to go back to idle. We also choose 0 for Transition Duration because we're not blending between 2D animations during our transition  (we can't blend 2d images and have something that looks good) like we can with 3D model animations, so we typically set this to 0 for 2D animations.
+![Creating the Idle to Walk Transition](/Images/ConfigureIdleToWalk.PNG "Creating the Idle to Walk Transition")
+1. Do the exact same thing again on the arrow going from Walk to Idle, except make Walk / False. This says when we set Walk = false, go back to playing our Idle sprites.
+
+    ![Creating the Walk to Idle Transition](/Images/ConfigureWalkToIdle.PNG "Creating the Walk to Idle Transition")
+1. Configure our Walk<-->Attack. We don't need to create another parameter for this, we already have one called Attack on our parameters tab that was created for this lab. This is a trigger, which is acts like a boolean until its been used by a transition and then goes back to false. 
+
+    Let's configure Walk->Soldier_Attack like we did Idle->Walk except we'll use the Attack condition. Click the transition from Walk->Soldier_Attack and configure the options as shown.
+    
+    ![Creating the Attack to Walk Transition](/Images/WalkToAttack.PNG "Creating the Attack to Walk Transition")
+
+1. Lastly configure Attack to Walk. Pay careful attention. Set the condition to Walk / true (we only want to walk again if walk is true otherwise we'll go to idle instead). 
+
+    We want our Attack animation to complete before we're allowed to go back to walk so we need to check off "Has Exit Time" and set Exit Time=1, which means the entire animation must play. Then change Transistion Offset to 0.
+     
+    ![Creating the Walk to Attack Transition](/Images/AttackToWalk.PNG "Creating the Walk to Attack Transition")
+
+1. Our animation controller is all set to go. However we need code to set our Walk variable. Attack has been taken care of already in the code. When a user moves the horizontal or vertical input will be nonzero so we can set Walk = true if thats the case. 
+
+    Open /Scripts/PlayerController.cs and navigate to the bottom of the Update() method. Uncomment the line that sets our Boolean parameter in the animation system and save your changes.
+    ````C#
+_animator.SetBool("Walk", _horizontal != 0 || _vertical != 0);
+    ````
+1. Go back to Unity and run your game. You should now get walk animations when you move. You may notice little glitches such as moving while attacking. Look at the code in the completed lab for handling various cases like that.  
 
 <a name="Summary"></a>
 ## Summary ##
+
+This lab took you through several aspects of Unity, while there's always more exciting things to learn, we've covered a good number of subject such as
+* The Editor Layout
+* Working with 2D Sprites
+* Testing your game in the editor (Play Mode)
+* Working with a trigger
+* Working with Prefabs
+* Destroying game objects
+* Organizing game objects
+* Using the animation system to create sprite based animations 
+
+For additional learning resources, check out
+- https://channel9.msdn.com/Shows/gamedev
+- http://www.adamtuliper.com/2015/10/some-awesome-learning-resources-for.html
+- http://unity3d.com/learn
 

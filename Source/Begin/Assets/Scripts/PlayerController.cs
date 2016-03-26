@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //TODO: Play Walk animation if we've read input on the horizontal
-        _animator.SetBool("Walk", _horizontal != 0 || _vertical != 0);
+        //_animator.SetBool("Walk", _horizontal != 0 || _vertical != 0);
     }
 
     void AttackLocalEnemies()
