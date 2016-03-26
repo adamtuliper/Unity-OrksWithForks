@@ -31,13 +31,6 @@ The following is required to complete this module:
 [1]: https://www.visualstudio.com/products/visual-studio-community-vs
 [2]: unity3d.com
 
-<a name="CodeSnippets"></a>
-### Using the Code Snippets ###
-
-Throughout the module document, you will be instructed to insert code blocks. For your convenience, most of this code is provided as Visual Studio Code Snippets, which you can access from within Visual Studio 2015 to avoid having to add it manually. 
-
->**Note**: Each exercise is accompanied by a starting solution located in the **Begin** folder of the exercise that allows you to follow each exercise independently of the others. Please be aware that the code snippets that are added during an exercise are missing from these starting solutions and may not work until you have completed the exercise. Inside the source code for an exercise, you will also find an **End** folder containing a complete Unity Project with the code and assets that result from completing the steps in the corresponding exercise. You can use these solutions as guidance if you need additional help as you work through this module. Unity can open multiple instances at a time as well as multiple versions of Unity can exist happily on your system and run at the same time as well.
-
 ---
 
 <a name="Exercises"></a>
@@ -98,7 +91,7 @@ _Orthographic Camera, after changing screen width the height is still the same_
     ![Play Bar](/Images/PlayBar.PNG "Play Bar")
 1. Move across the screen to the exit. Note the camera doesn't follow.
 
-1. When you are done make sure you click play again to get out of play mode.
+1. When you are done ** make sure you click play again to get out of play mode. **
 
 1. In the project window at the bottom, Navigate to /Scripts/
 
@@ -250,6 +243,7 @@ In Unity, we can detect when one object has come within range of another object 
     ![Add Circle Collider](/Images/AddCircleCollider.PNG "Add Circle Collider")
 
 1. On the newly added component, check off IsTrigger. This will turn it from an immoveable object to something you can run through (ie - pick up)
+
     ![Check Off IsTrigger](/Images/IsTrigger.PNG "Check Off IsTrigger")
 
 1. Notice that any coin you click on now has this trigger on it.
@@ -257,6 +251,7 @@ In Unity, we can detect when one object has come within range of another object 
 1. Open the /Scenes/scene01 and find the Player game object near the top of the hierarchy. Note that this game object has a PlayerController script which is a more completed version of the SimplePlayer script.
 
 1. Open the /Scripts/PlayerController.cs file either by double clicking on it or double clicking on it from the Inspector for the Player game object
+
     ![Select Script from Inspector](/Images/SelectScriptFromInspector.PNG "Select Script from Inspector")
 
 1. Find the OnTriggerEnter2D method. This will get called when the player runs over any objects with a 2D trigger on it, like we created for the coin.
@@ -264,7 +259,9 @@ In Unity, we can detect when one object has come within range of another object 
 1. Back in Unity's Editor, find any coin in the scene or the /Prefabs/coin they are all made from. In the Inspector note  that each coin has a PickupProperties.cs script on it that simply contains it's value in points. We can see this in the Editor. Since code is just another component on a game object, wee can ask Unity for these values.
 ![Pickup Points](/Images/PickupPoints.PNG "Pickup Points")
 
-1. In Visual Studio, uncomment the code for the first **TODO**. This will increment our coin score when we run over a coin. We know we run over a coin because it has a tag. A tag is just text we can use to identity an object, (just like you can in Windows Forms and XAML). You can create your own tags easily and then assign them in a dropdown list for an object. Here's an image showing the coin tag that is set. Creating a new tag is just a matter of selecting "Add Tag"
+1. In Visual Studio, uncomment the code for the first **TODO**. This will increment our coin score when we run over a coin. We know we run over a coin because it has a tag. A tag is just text we can use to identity an object, (just like you can in Windows Forms and XAML). You can create your own tags easily and then assign them in a dropdown list for an object. Here's an image showing the coin tag that is set. Creating a new tag is just a matter of selecting "Add Tag".
+
+Your code should now look like this
     ````C#
     if (collision.gameObject.tag == "Coin")
     {
@@ -341,7 +338,8 @@ Let's go ahead and add a Walk animation to the player.
 1. Next we need to tell our transitions (the arrows, remember?) to use this variable to signal when to go from Idle to Walk. Click ** on the arrow line ** going ** from ** soldier_idle to walk. It will turn blue.
 
 1. On the right hand side of the screen under Conditions click the plus sign to Add, and change it to Walk / True. We uncheck "Has Exit Time" because this animation can be interrupted at any time to go back to idle. We also choose 0 for Transition Duration because we're not blending between 2D animations during our transition  (we can't blend 2d images and have something that looks good) like we can with 3D model animations, so we typically set this to 0 for 2D animations.
-![Creating the Idle to Walk Transition](/Images/ConfigureIdleToWalk.PNG "Creating the Idle to Walk Transition")
+
+    ![Creating the Idle to Walk Transition](/Images/ConfigureIdleToWalk.PNG "Creating the Idle to Walk Transition")
 1. Do the exact same thing again on the arrow going from Walk to Idle, except make Walk / False. This says when we set Walk = false, go back to playing our Idle sprites.
 
     ![Creating the Walk to Idle Transition](/Images/ConfigureWalkToIdle.PNG "Creating the Walk to Idle Transition")
