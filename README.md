@@ -19,6 +19,9 @@ In this module, you will see how to:
 - Handle User Input
 - Work with the Camera
 - Handle Input from Keyboard
+- Move the player
+- Setup an animation
+- Test your game
 
 <a name="Prerequisites"></a>
 ### Prerequisites ###
@@ -47,8 +50,12 @@ Estimated time to complete this module: **60 minutes**
 ### Getting Started : Creating your first game ###
 
 In this exercise you will create your first Unity game. But first let's explore the Editor interface in Unity.
-The Hierarchy window (1) contains everything in your scene. A scene is essentially a level in your game. When the game loads, it will load the first scene in your build settings (control-shift-b) or if you are working in the Editor, the current scene will load when you play test your game.
-The Scene tab(2) contains your design surface for your level. Here you drag/drop objects and arrange your objects. Next is the Game window (3) where you will see your game when test playing it. The Play bar (4) allows you to play your game right in Unity without having to build externally. It also allows you to pause and run your game one frame at a time. After that is the Inspector window (5) that has the properties of the currently selected Game Object. Finally the Project window (6) is what contains all of the art, models, images, scripts, audio, and files (assets) that make up your project.
+1. The Hierarchy window contains everything in your scene. A scene is essentially a level in your game. When the game loads, it will load the first scene in your build settings (control-shift-b) or if you are working in the Editor, the current scene will load when you play test your game.
+2. The Scene tab contains your design surface for your level. Here you drag/drop objects and arrange your objects. 
+3. Next is the Game window where you will see your game when test playing it. 
+4. The Play bar or Tool bar allows you to play your game right in Unity without having to build externally. It also allows you to pause and run your game one frame at a time. 
+5. After that is the Inspector window that has the properties of the currently selected Game Object. 
+6. Finally the Project window is what contains all of the art, models, images, scripts, audio, and files (assets) that make up your project.
 
 ![The Editor](/Images/Editor.PNG "The Editor")
 
@@ -56,6 +63,8 @@ Unity's Asset Store allows you to buy (or get some for free) various assets rela
 AssetStore
 
 ![The Asset Store](/Images/AssetStore.PNG "The Asset Store")
+
+---
 
 <a name="Ex1Task1"></a>
 #### Task 1 - Open Project and Scene ####
@@ -70,6 +79,7 @@ To get started we need to open the starter Unity Project and find the scene file
 
 ![Open Scene 01](/Images/Scene.PNG)
 
+---
 <a name="Ex1Task2"></a>
 #### Task 2 - Run the game and modify camera settings ####
 
@@ -109,6 +119,7 @@ _Orthographic Camera, after changing screen width the height is still the same_
 1. In the Inspector window, change the size on the orthographic camera component to customize how much vertical height the user will see no matter the device they run it on.
 ![Orthographic Height](/Images/CameraSize.PNG "Orthographic Height")
 
+---
 <a name="Ex1Task3"></a>
 #### Task 3 - Organize the Hierarchy Window ####
 
@@ -133,6 +144,7 @@ A game object can be a zombie, but it can also just be container for other objec
 1. Collapse the Environment and Enemies game objects to clean up the Hierarchy window. 
     ![Collapse Game Objects](/Images/CollapseGameObjects.PNG "Collapse Game Objects")
 
+---
 <a name="Ex1Task4"></a>
 #### Task 4 - Add Level Pieces  ####
 
@@ -147,7 +159,8 @@ The level is incomplete. The left edge has been removed. Add some level pieces f
 1. Now the tricky part. Vertex snapping. In order to get everything in place all night and neat we need to snap one vertex to the next closest vertex. Hold down V and mouse near the edge of a piece you want to snap to another.
 
     ![Vertex Snap](/Images/VertexSnap.PNG "Vertex Snap")
-    
+
+---    
 <a name="Ex1Task5"></a>
 #### Task 5 - Read basic input and move the player ####
 
@@ -203,6 +216,7 @@ Replace the //ToDo line with the method content below. This will set the velocit
 1. Press Control-S to save your Unity scene changes and then click play to run the Unity project. Press the left/right up/down arrows or ASDW keys to move the character around.
 ![Play Simple PLayer](/Images/PlaySimplePlayer.PNG "Play Simple Player")
 
+---
 <a name="Ex1Task6"></a>
 #### Task 6 - Allow the player to play the attack and walk animations ####
 
@@ -229,6 +243,7 @@ Now that we see how to apply basic movement, let's add code to allow the charact
 
 1. Click Play to test out the changes. You should now get a walking animation when you move and an attack animation when you press the left mouse button or left control key.
 
+---
 <a name="Ex1Task7"></a>
 #### Task 7 - Add a trigger to the coin to allow the play to detect it  ####
 
@@ -291,7 +306,8 @@ Your code should now look like this
     ````
          
 1. Save your code and go back to Unity's Editor and play your game. When you run over coins now you should see them disappear and your coin score increase.
-                
+
+---                
 <a name="Ex1Task8"></a>
 #### Task 8 - Add the Walk animation ####
 Some existing animations have already been setup for our fearless hero. Animations in Unity simply control components over time via point in time snapshots called keyframes. Animations require two things - an Animator component on the game object which in turn points to an animation controller. 
@@ -308,9 +324,10 @@ The items below are
 Let's go ahead and add a Walk animation to the player.
 1. Navigate to the /Sprites/Hero/Walk folder
 1. In the folder press Control-A to select all of the images
-1. Drag and drop them onto the Player game object in the hierarchy. If prompted to create a file name it "Walk". This will be automatically created to contain the animation keyframes to cycle through each sprite
-    
+1. Drag and drop them onto the Player game object in the hierarchy. If prompted to create a file name it "Walk". This will be automatically created to contain the animation keyframes to cycle through each sprite.
+
     ![Creating the Walk Animation](/Images/CreateWalkAnimation.PNG "Creating the Walk Animation")
+
 1. That last step creates a Walk.anim file with animation data in it. That data is visible in the Animation window (Menu item Windows/Animation) once you select the Player.
     
     ![Walk Animation File](/Images/WalkAnimationFile.PNG "Walk Animation File")
@@ -363,6 +380,7 @@ _animator.SetBool("Walk", _horizontal != 0 || _vertical != 0);
     ````
 1. Go back to Unity and run your game. You should now get walk animations when you move. You may notice little glitches such as moving while attacking. Look at the code in the completed lab for handling various cases like that.  
 
+---
 <a name="Summary"></a>
 ## Summary ##
 
