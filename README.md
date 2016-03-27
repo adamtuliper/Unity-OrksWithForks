@@ -275,7 +275,6 @@ In Unity, we can detect when one object has come within range of another object 
 ![Pickup Points](/Images/PickupPoints.PNG "Pickup Points")
 
 1. In Visual Studio, uncomment the code for the first **TODO**. This will increment our coin score when we run over a coin. We know we run over a coin because it has a tag. A tag is just text we can use to identity an object, (just like you can in Windows Forms and XAML). You can create your own tags easily and then assign them in a dropdown list for an object. Here's an image showing the coin tag that is set. Creating a new tag is just a matter of selecting "Add Tag".
-
 Your code should now look like this
     ````C#
     if (collision.gameObject.tag == "Coin")
