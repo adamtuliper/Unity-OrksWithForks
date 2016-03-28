@@ -325,7 +325,7 @@ Let's go ahead and add a Walk animation to the player.
 1. In the folder press Control-A to select all of the images
 1. Drag and drop them onto the Player game object in the hierarchy. If prompted to create a file name it "Walk". This will be automatically created to contain the animation keyframes to cycle through each sprite.
 
-    ![Creating the Walk Animation](/Images/CreateWalkAnimation.PNG "Creating the Walk Animation")
+![Creating the Walk Animation](/Images/CreateWalkAnimation.PNG "Creating the Walk Animation")
 
 1. That last step creates a Walk.anim file with animation data in it. That data is visible in the Animation window (Menu item Windows/Animation) once you select the Player.
     
