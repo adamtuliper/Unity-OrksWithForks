@@ -311,16 +311,18 @@ Your code should now look like this
 #### Task 8 - Add the Walk animation ####
 Some existing animations have already been setup for our fearless hero. Animations in Unity simply control components over time via point in time snapshots called keyframes. Animations require two things - an Animator component on the game object which in turn points to an animation controller. 
 
-The items below are
-* 1) The selected play with its Components showing in the Inspector window.
-* 2) The Animator component which points to 3
-* 3) The Animation Controller file. This contains the sequence of animations to play. Think of it as a flow chart for animations
-* 4) Each rectangle represents a different animation to play. We'll create a new one momentarily.
-* 5) The arrows are called the transsitions that move between each animation. Its the properties on these transitions that define when to play each animation.
+The items below are:
+
+1. The selected play with its Components showing in the Inspector window.
+1. The Animator component which points to 3
+1. The Animation Controller file. This contains the sequence of animations to play. Think of it as a flow chart for animations
+1. Each rectangle represents a different animation to play. We'll create a new one momentarily.
+1. The arrows are called the transsitions that move between each animation. Its the properties on these transitions that define when to play each animation.
 
     ![Animation Overview](/Images/AnimationOverview.PNG "Animation Overview")
 
 Let's go ahead and add a Walk animation to the player.
+
 1. Navigate to the /Sprites/Hero/Walk folder
 1. In the folder press Control-A to select all of the images
 1. Drag and drop them onto the Player game object in the hierarchy. If prompted to create a file name it "Walk". This will be automatically created to contain the animation keyframes to cycle through each sprite.
