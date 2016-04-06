@@ -309,15 +309,15 @@ Your code should now look like this
 ---                
 <a name="Ex1Task8"></a>
 #### Task 8 - Add the Walk animation ####
-Some existing animations have already been setup for our fearless hero. Animations in Unity simply control components over time via point in time snapshots called keyframes. Animations require two things - an Animator component on the game object which in turn points to an animation controller. 
+Some existing animations have already been set up for our fearless hero. Animations in Unity simply control components over time via point in time snapshots called keyframes. Animations require two things - an Animator component on the game object which in turn points to an animation controller.
 
 The items below are:
 
-1. The selected play with its Components showing in the Inspector window.
+1. The selected player with its Components showing in the Inspector window.
 1. The Animator component which points to 3
 1. The Animation Controller file. This contains the sequence of animations to play. Think of it as a flow chart for animations
 1. Each rectangle represents a different animation to play. We'll create a new one momentarily.
-1. The arrows are called the transsitions that move between each animation. Its the properties on these transitions that define when to play each animation.
+1. The arrows are called the transitions that move between each animation. It's the properties on these transitions that define when to play each animation.
 
     ![Animation Overview](/Images/AnimationOverview.PNG "Animation Overview")
 
@@ -333,7 +333,7 @@ Let's go ahead and add a Walk animation to the player.
     
     ![Walk Animation File](/Images/WalkAnimationFile.PNG "Walk Animation File")
      
-1. Now lets double click on the hero animation controller file. Ensure the Player is selected and double click on "Hero"
+1. Now let's double click on the hero animation controller file. Ensure the Player is selected and double click on "Hero"
     ![Open the Hero Animation Controller](/Images/DoubleClickToOpenHeroController.PNG "CreOpen the Hero Animation Controller")
     
 1. Note there's now a new Walk state in our Animation Controller. Drag it next to soldier_attack
@@ -361,7 +361,7 @@ Let's go ahead and add a Walk animation to the player.
 1. Do the exact same thing again on the arrow going from Walk to Idle, except make Walk / False. This says when we set Walk = false, go back to playing our Idle sprites.
 
     ![Creating the Walk to Idle Transition](/Images/ConfigureWalkToIdle.PNG "Creating the Walk to Idle Transition")
-1. Configure our Walk<-->Attack. We don't need to create another parameter for this, we already have one called Attack on our parameters tab that was created for this lab. This is a trigger, which is acts like a boolean until its been used by a transition and then goes back to false. 
+1. Configure our Walk<-->Attack. We don't need to create another parameter for this, we already have one called Attack on our parameters tab that was created for this lab. This is a trigger, which is acts like a boolean until it's been used by a transition and then goes back to false.
 
     Let's configure Walk->Soldier_Attack like we did Idle->Walk except we'll use the Attack condition. Click the transition from Walk->Soldier_Attack and configure the options as shown.
     
@@ -369,11 +369,11 @@ Let's go ahead and add a Walk animation to the player.
 
 1. Lastly configure Attack to Walk. Pay careful attention. Set the condition to Walk / true (we only want to walk again if walk is true otherwise we'll go to idle instead). 
 
-    We want our Attack animation to complete before we're allowed to go back to walk so we need to check off "Has Exit Time" and set Exit Time=1, which means the entire animation must play. Then change Transistion Offset to 0.
+    We want our Attack animation to complete before we're allowed to go back to walk so we need to check off "Has Exit Time" and set Exit Time=1, which means the entire animation must play. Then change Transition Offset to 0.
      
     ![Creating the Walk to Attack Transition](/Images/AttackToWalk.PNG "Creating the Walk to Attack Transition")
 
-1. Our animation controller is all set to go. However we need code to set our Walk variable. Attack has been taken care of already in the code. When a user moves the horizontal or vertical input will be nonzero so we can set Walk = true if thats the case. 
+1. Our animation controller is all set to go. However we need code to set our Walk variable. Attack has been taken care of already in the code. When a user moves the horizontal or vertical input will be nonzero so we can set Walk = true if that's the case.
 
     Open /Scripts/PlayerController.cs and navigate to the bottom of the Update() method. Uncomment the line that sets our Boolean parameter in the animation system and save your changes.
     ````C#
@@ -385,7 +385,7 @@ _animator.SetBool("Walk", _horizontal != 0 || _vertical != 0);
 <a name="Summary"></a>
 ## Summary ##
 
-This lab took you through several aspects of Unity, while there's always more exciting things to learn, we've covered a good number of subject such as
+This lab took you through several aspects of Unity, and while there are always more exciting things to learn, we've covered a good number of subjects such as:
 * The Editor Layout
 * Working with 2D Sprites
 * Testing your game in the editor (Play Mode)
