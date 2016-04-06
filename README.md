@@ -6,7 +6,7 @@
 <a name="Overview"></a>
 ## Overview ##
 
-Unity is a major player in the cross platform game engine space with over 21 supported platforms, including Windows 10, MacOS, Linux, Android and iOS, all of which can use the same code base. In this workshop you will build "Orks with Forks (and Knives)" - a fun top down 2D game. Keep in mind Unity is not a 3D asset creation system, but instead a system in which you can arrange your assets, write code to animate, use physics, audio, and more. There are other software packages such as Autodesk Maya or Blender that can be used to 3D model, although Unity does have a built in terrain modelling system.
+Unity is a major player in the cross platform game engine space with over 21 supported platforms, including Windows 10, MacOS, Linux, Android and iOS, all of which can use the same code base. In this workshop you will build "Orks with Forks (and Knives)" - a fun top down 2D game. Keep in mind Unity is not a 3D asset creation system, but instead a system in which you can arrange your assets, write code to animate, use physics, audio, and more. There are other software packages such as Autodesk Maya or Blender that can be used to 3D model, although Unity does have a built in terrain modeling system.
 
 ![alt](/Images/Orks Screenshot.PNG)
 
@@ -50,17 +50,17 @@ Estimated time to complete this module: **60 minutes**
 ### Getting Started : Creating your first game ###
 
 In this exercise you will create your first Unity game. But first let's explore the Editor interface in Unity.
+
 1. The Hierarchy window contains everything in your scene. A scene is essentially a level in your game. When the game loads, it will load the first scene in your build settings (control-shift-b) or if you are working in the Editor, the current scene will load when you play test your game.
-2. The Scene tab contains your design surface for your level. Here you drag/drop objects and arrange your objects. 
-3. Next is the Game window where you will see your game when test playing it. 
-4. The Play bar or Tool bar allows you to play your game right in Unity without having to build externally. It also allows you to pause and run your game one frame at a time. 
-5. After that is the Inspector window that has the properties of the currently selected Game Object. 
-6. Finally the Project window is what contains all of the art, models, images, scripts, audio, and files (assets) that make up your project.
+1. The Scene tab contains your design surface for your level. Here you drag/drop objects and arrange your objects.
+1. Next is the Game window where you will see your game when test playing it.
+1. The Play bar or Tool bar allows you to play your game right in Unity without having to build externally. It also allows you to pause and run your game one frame at a time.
+1. After that is the Inspector window that has the properties of the currently selected Game Object.
+1. Finally the Project window is what contains all of the art, models, images, scripts, audio, and files (assets) that make up your project.
 
 ![The Editor](/Images/Editor.PNG "The Editor")
 
 Unity's Asset Store allows you to buy (or get some for free) various assets related to your game. 
-AssetStore
 
 ![The Asset Store](/Images/AssetStore.PNG "The Asset Store")
 
@@ -83,10 +83,10 @@ To get started we need to open the starter Unity Project and find the scene file
 <a name="Ex1Task2"></a>
 #### Task 2 - Run the game and modify camera settings ####
 
-Note the Play, Pause, and Frame Advance button on the toolbar. This allows you to play your game without having to manually compile and export a build. Mono is used as the runtime for your scripts (Plus the native engine code) and Unity runs it right in the editor.
-When you click play, you'll go into Play Mode. This is a temporary testing mode and most changes you make will be lost so it is important to know when you are in play mode. 
+Note the Play, Pause, and Frame Advance button on the toolbar. This allows you to play your game without having to manually compile and export a build. Mono is used as the runtime for your scripts (plus the native engine code) and Unity runs it right in the editor.
+When you click play, you'll go into Play Mode. This is a temporary testing mode and most changes you make will be lost, so it is important to know when you are in play mode.
 
-Everything in your game is visible because of a camera. There are two camera types in Unity - Orthographic and Perspective. These are simply options on a camera component. Perspective cameras see the world as we do, Orthographic cameras have no scaling with distance, which is good for 2D games. Also Orthographic camera size keeps a fixed height no matter the screen we are running the game on. The only thing that varies is how much width is visible.
+Everything in your game is visible because of a camera. There are two camera types in Unity - Orthographic and Perspective. These are simply options on a camera component. Perspective cameras see the world as we do, while Orthographic cameras have no scaling with distance, which is good for 2D games. Also Orthographic camera size keeps a fixed height no matter what size screen we are running the game on. The only thing that varies is how much width is visible.
 
 ![Wide View with Orthographic Camera](/Images/OrthoWide.PNG "Wide View with Orthographic Camera")
 _Orthographic Camera, note the height_
@@ -101,7 +101,7 @@ _Orthographic Camera, after changing screen width the height is still the same_
     ![Play Bar](/Images/PlayBar.PNG "Play Bar")
 1. Move across the screen to the exit. Note the camera doesn't follow.
 
-1. When you are done ** make sure you click play again to get out of play mode. **
+1. When you are done **make sure you click play again to get out of play mode.**
 
 1. In the project window at the bottom, Navigate to /Scripts/
 
@@ -111,7 +111,7 @@ _Orthographic Camera, after changing screen width the height is still the same_
 
 1. Get out of play mode.
 
-1. ** Verify you are not in play mode ** Press Control-S to save your scene. If you are in play mode you'll get an error.
+1. **Verify you are not in play mode.** Press Control-S to save your scene. If you are in play mode you'll get an error.
 
 1. In the hierarchy window, select the Main Camera game object. This acts as our eyes and ears. These are just components on this game object, an Audio Listener Component and a Camera Component.
 ![Camera Game Object](/Images/CameraSelected.PNG "Camera Game Object")
@@ -137,7 +137,7 @@ A game object can be a zombie, but it can also just be container for other objec
 ![Drag Enemies](/Images/DragOrks.PNG "Drag Enemies")
 
     _Drag enemies onto the Enemies Game Object_
-1. In the Hierarchy window, locate the Environment game object. There's already a bunch of objects underneath it.
+1. In the Hierarchy window, locate the Environment game object. There are already a bunch of objects underneath it.
 
 1. Next (still in the Hierarchy window), drag and drop all the 'walls' onto the "Environment" game object to clean up the view. You can control-click or click one and shift click another item, just as you would in Windows Explorer to select files. 
 ![Game Objects that could be organized](/Images/EditorWallCleanup.PNG "Game objects that could be organized")
@@ -253,11 +253,11 @@ In Unity, we can detect when one object has come within range of another object 
 
 1. Right click on the coin in the Hierarchy and choose "Select Prefab". This coin is a prefab, that's why it is blue in the Hierarchy window. This is an instance of a shared object in your project folder. If you change the shared object, you'll change every instance of that coin.
  
-1. In the Project Window, ensure the coin is highlighted. Note - we're talking about the project window note not the Hierarchy window. Click the Add Component button and type in Circle.
+1. In the Project Window, ensure the coin is highlighted. Note - we're talking about the project window, not the Hierarchy window. Click the Add Component button and type in Circle.
 
     ![Add Circle Collider](/Images/AddCircleCollider.PNG "Add Circle Collider")
 
-1. On the newly added component, check off IsTrigger. This will turn it from an immoveable object to something you can run through (ie - pick up)
+1. On the newly added component, check the box for "Is Trigger". This will turn it from an immovable object to something you can run through (ie - pick up)
 
     ![Check Off IsTrigger](/Images/IsTrigger.PNG "Check Off IsTrigger")
 
@@ -271,10 +271,10 @@ In Unity, we can detect when one object has come within range of another object 
 
 1. Find the OnTriggerEnter2D method. This will get called when the player runs over any objects with a 2D trigger on it, like we created for the coin.
 
-1. Back in Unity's Editor, find any coin in the scene or the /Prefabs/coin they are all made from. In the Inspector note  that each coin has a PickupProperties.cs script on it that simply contains it's value in points. We can see this in the Editor. Since code is just another component on a game object, wee can ask Unity for these values.
+1. Back in Unity's Editor, find any coin in the scene or the /Prefabs/coin they are all made from. In the Inspector note  that each coin has a PickupProperties.cs script on it that simply contains its value in points. We can see this in the Editor. Since code is just another component on a game object, we can ask Unity for these values.
 ![Pickup Points](/Images/PickupPoints.PNG "Pickup Points")
 
-1. In Visual Studio, uncomment the code for the first **TODO**. This will increment our coin score when we run over a coin. We know we run over a coin because it has a tag. A tag is just text we can use to identity an object, (just like you can in Windows Forms and XAML). You can create your own tags easily and then assign them in a dropdown list for an object. Here's an image showing the coin tag that is set. Creating a new tag is just a matter of selecting "Add Tag".
+1. In Visual Studio, uncomment the code for the first **TODO**. This will increment our coin score when we run over a coin. We know we run over a coin because it has a tag. A tag is just text we can use to identity an object (just like you can in Windows Forms and XAML). You can create your own tags easily and then assign them in a dropdown list for an object. Here's an image showing the coin tag that is set. Creating a new tag is just a matter of selecting "Add Tag".
 Your code should now look like this
     ````C#
     if (collision.gameObject.tag == "Coin")
@@ -290,7 +290,7 @@ Your code should now look like this
     ```` 
     ![Coin Tag](/Images/CoinTag.PNG "Coin Tag")
  
-1. In Visual Studio find the "TODO - destroy game object we just picked up and replace it with the code shown below. Our completed block of code now looks like the following. Notice how we check the tag of the object we've just intersected (triggrered) with. Each coin has a PickupProperties.cs script on it that 
+1. In Visual Studio find the "TODO - destroy game object we just picked up" and replace it with the code shown below. Our completed block of code now looks like the following:
     ````C#
     if (collision.gameObject.tag == "Coin")
     {
@@ -351,7 +351,7 @@ Let's go ahead and add a Walk animation to the player.
     ![Creating the Walk Bool 1](/Images/AnimationParameters1.PNG "Creating the Walk Bool 1")
     ![Creating the Walk Bool 2](/Images/AnimationParameters2.PNG "Creating the Walk Bool 2")
     
-1. Next we need to tell our transitions (the arrows, remember?) to use this variable to signal when to go from Idle to Walk. Click ** on the arrow line ** going ** from ** soldier_idle to walk. It will turn blue.
+1. Next we need to tell our transitions (the arrows, remember?) to use this variable to signal when to go from Idle to Walk. Click **on the arrow line** going **from** soldier_idle to walk. It will turn blue.
 
 1. On the right hand side of the screen under Conditions click the plus sign to Add, and change it to Walk / True. We uncheck "Has Exit Time" because this animation can be interrupted at any time to go back to idle. We also choose 0 for Transition Duration because we're not blending between 2D animations during our transition  (we can't blend 2d images and have something that looks good) like we can with 3D model animations, so we typically set this to 0 for 2D animations.
 
