@@ -20,18 +20,12 @@ public class SimplePlayer : MonoBehaviour {
 	void Update () {
 
         //TODO Read Horizontal and Vertical input
-		_horizontal = Input.GetAxis("Horizontal");
-		_vertical = Input.GetAxis("Vertical");
 
         //TODO Read Input.GetButtonDown
-		if (Input.GetButtonDown ("Fire1")) {
-			_animator.SetTrigger ("Attack");
-		}
     }
 
     void FixedUpdate()
     {
        //TODO set the rigidbody's velocity
-		_rigidBody.velocity = new Vector2(_horizontal, _vertical);
     }
 }
