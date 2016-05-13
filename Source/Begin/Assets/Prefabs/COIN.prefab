@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 413126}
   - 114: {fileID: 11437678}
-  - 58: {fileID: 5805738}
   m_Layer: 0
   m_Name: COIN
   m_TagString: Coin
@@ -43,7 +42,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 467190}
   - 212: {fileID: 21268740}
-  - 58: {fileID: 5894540}
   m_Layer: 0
   m_Name: coin
   m_TagString: Untagged
@@ -119,34 +117,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 413126}
   m_RootOrder: 1
---- !u!58 &5805738
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 110246}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0.25, y: 0.25}
-  serializedVersion: 2
-  m_Radius: 0.75
---- !u!58 &5894540
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 145822}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 1.05
 --- !u!114 &11437678
 MonoBehaviour:
   m_ObjectHideFlags: 1

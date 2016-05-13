@@ -98,11 +98,11 @@ public class PlayerController : MonoBehaviour
         {
             //Get its coin score
             //TODO
-            var pickupProperties = collision.gameObject.GetComponent<PickupProperties>();
-            CoinUp(pickupProperties.CoinAmount);
+            //var pickupProperties = collision.gameObject.GetComponent<PickupProperties>();
+            //CoinUp(pickupProperties.CoinAmount);
 
             //TODO - destroy game object we just picked up
-			Destroy(collision.gameObject);
+
         }
         else if (collision.gameObject.tag == "Health")
         {
@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //TODO: Play Walk animation if we've read input on the horizontal
-        _animator.SetBool("Walk", _horizontal != 0 || _vertical != 0);
+        //_animator.SetBool("Walk", _horizontal != 0 || _vertical != 0);
     }
 
     void AttackLocalEnemies()
