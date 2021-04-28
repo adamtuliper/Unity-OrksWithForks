@@ -251,7 +251,7 @@ In Unity, we can detect when one object has come within range of another object 
 
 1. Find a coin in the scene and click on it. It may help to press T to select the 2D tool.
 
-1. Right click on the coin in the Hierarchy and choose "Select Prefab". This coin is a prefab, that's why it is blue in the Hierarchy window. This is an instance of a shared object in your project folder. If you change the shared object, you'll change every instance of that coin.
+1. Right click on the coin *in the Hierarchy window* and choose "Prefab->Select Asset". This coin is a prefab, that's why it is blue in the Hierarchy window. This is an instance of a shared object in your project folder. If you change the shared object, you'll change every instance of that coin.
  
 1. In the Project Window, ensure the coin is highlighted. Note - we're talking about the project window, not the Hierarchy window. Click the Add Component button and type in Circle.
 
