@@ -28,7 +28,7 @@ In this module, you will see how to:
 
 The following is required to complete this module:
 
-- [Visual Studio Community 2015][1] or greater.
+- [Visual Studio Community 2015 or greater.
 - [Unity 5.3][2] or greater.
 
 [1]: https://www.visualstudio.com/products/visual-studio-community-vs
@@ -40,7 +40,7 @@ The following is required to complete this module:
 ## Exercises ##
 This module includes the following exercise:
 
-1.  [Getting Started : Creating your first game](#Exercise1)
+1.  [Getting Started : Creating your first game]
 
 Estimated time to complete this module: **60 minutes**
 
@@ -375,7 +375,7 @@ Let's go ahead and add a Walk animation to the player.
 
 1. Our animation controller is all set to go. However we need code to set our Walk variable. Attack has been taken care of already in the code. When a user moves the horizontal or vertical input will be nonzero so we can set Walk = true if that's the case.
 
-    Open /Scripts/PlayerController.cs and navigate to the bottom of the Update() method. Uncomment the line that sets our Boolean parameter in the animation system and save your changes.
+    Open /Scripts/PlayerController.cs and navigate to the bottom of the Update() method. Uncomment the line that sets our Boolean parameter in the animation system and save your changes. This line says if horizontal is not zero or vertical is not zero, ie if we've read input to move then set walk = true.
     ````C#
 _animator.SetBool("Walk", _horizontal != 0 || _vertical != 0);
     ````
@@ -394,9 +394,3 @@ This lab took you through several aspects of Unity, and while there are always m
 * Destroying game objects
 * Organizing game objects
 * Using the animation system to create sprite based animations 
-
-For additional learning resources, check out
-- https://channel9.msdn.com/Shows/gamedev
-- http://www.adamtuliper.com/2015/10/some-awesome-learning-resources-for.html
-- http://unity3d.com/learn
-
