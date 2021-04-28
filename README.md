@@ -376,9 +376,11 @@ Let's go ahead and add a Walk animation to the player.
 1. Our animation controller is all set to go. However we need code to set our Walk variable. Attack has been taken care of already in the code. When a user moves the horizontal or vertical input will be nonzero so we can set Walk = true if that's the case.
 
     Open /Scripts/PlayerController.cs and navigate to the bottom of the Update() method. Uncomment the line that sets our Boolean parameter in the animation system and save your changes. This line says if horizontal is not zero or vertical is not zero, ie if we've read input to move then set walk = true.
+    
     ````C#
 _animator.SetBool("Walk", _horizontal != 0 || _vertical != 0);
     ````
+
 1. Go back to Unity and run your game. You should now get walk animations when you move. You may notice little glitches such as moving while attacking. Look at the code in the completed lab for handling various cases like that.  
 
 ---
